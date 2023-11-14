@@ -1,0 +1,15 @@
+{
+  "name": "뜬구름",
+  "version": "1.0",
+  "description": "float_cloud extension app",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/logo_extension.png",
+    "32": "images/logo_extension.png",
+    "48": "images/logo_extension.png",
+    "128": "images/logo_extension.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  }
+}
