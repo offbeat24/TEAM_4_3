@@ -16,7 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     min-width: 450px;
     max-width: 450px;
     max-height: 600px;
-    border-radius: 20px;
   }
   
 `
