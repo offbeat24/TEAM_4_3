@@ -1,13 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown from '../DropDown';
 import * as S from './style';
 
 function AddComment ({ token }) {
   const [isOpenTeam, setIsOpenTeam] = useState(false);
   const [isOpenTopic, setIsOpenTopic] = useState(false);
-  const [selectedTeam, setSelectedTeam] = useState(null);
-  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [selectedTeam, setSelectedTeam] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [isDisable, setDisable] = useState(true);
 
   const toggleDropdownTeam = () => {
     setIsOpenTeam(!isOpenTeam);
@@ -29,11 +32,29 @@ function AddComment ({ token }) {
     setIsOpenTopic(false);
   };
 
+  const handleTitle = event => {
+    setTitle(event.target.value);
+  };
+
+  const handleContent = event => {
+    setContent(event.target.value);
+  };
+
+  useEffect(()=> {
+    if ( selectedTeam !== "" && selectedTopic !== "" && title !== "" && content !== "" ) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  },[selectedTeam, selectedTopic, title, content, isDisable]);
   const items = ["항목 1", "항목 2", "항목 3", "항목 4", "항목 5", "항목 6", "항목 7", "항목 8"];
 
+  const onSubmit =  async() => {
+    alert("구름이 작성 되었습니다.")
+  }
   return (
     <S.MainWrapper>
-      <S.CloudContainer>
+      <S.CloudContainer >
         <S.ExtensionTitle>
           구름 바로 등록하기 
         </S.ExtensionTitle>
@@ -56,13 +77,19 @@ function AddComment ({ token }) {
             holder={"주제를 선택하세요"} 
           />
         </S.SelectorWrap>
-        <S.TextFieldWrapper>
-          <S.TitleField placeholder="구름의 제목을 입력하세요">
+        <S.TextFieldWrapper >
+          <S.TitleField
+            id='title'
+            placeholder="구름의 제목을 입력하세요"
+            onChange={e => handleTitle(e)}>
           </S.TitleField>
-          <S.ContentField placeholder="구름에 대한 세부 설명을 작성해주세요">
+          <S.ContentField
+            id='contents'
+            placeholder="구름에 대한 세부 설명을 작성해주세요"
+            onChange={e => handleContent(e)}>
           </S.ContentField>
         </S.TextFieldWrapper>
-        <S.SubmitButton>확인</S.SubmitButton>
+        <S.SubmitButton onClick={onSubmit} disabled={isDisable}>확인</S.SubmitButton>
       </S.CloudContainer>
     </S.MainWrapper>
   )
