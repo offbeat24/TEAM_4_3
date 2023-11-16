@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
-  border-radius: 20px;
   background: ${(props) => props.theme.color.skyblue50};
   opacity: 0.7;
   width: 450px;

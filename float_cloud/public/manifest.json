@@ -9,7 +9,22 @@
     "48": "images/logo_extension.png",
     "128": "images/logo_extension.png"
   },
+  "permission": ["storage", "scripting"],
+  "host_permissions": [
+    "https://www.example.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches":["https://ddnggoorm.xyz/*"],
+      "js": ["content.js"]
+    }
+  ],
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": "images/logo_extension.png",
+    "default_title": "뜬구름"
   }
 }
