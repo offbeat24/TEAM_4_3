@@ -12,14 +12,7 @@ const multipleEntry = RewireMultipleEntry([
     template: "public/index.html",
     outPath: "/popup.html",
   },
-  // {
-  //   entry: "src/background.js", 
-  //   outPath: "/background.js",
-  // },
-  // {
-  //   entry: "src/content.js",
-  //   outPath: "/content.js",
-  // },
+
 ]);
 
 const devServerConfig = () => (config) => {

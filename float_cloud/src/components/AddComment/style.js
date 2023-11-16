@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const disabledStyle = css`
+  background: ${(props) => props.theme.mono.mono3};
+  cursor: not-allowed;
+`;
 
 export const MainWrapper = styled.div`
   background: ${(props) => props.theme.color.skyblue50};
@@ -8,7 +13,7 @@ export const MainWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
-export const CloudContainer = styled.div`
+export const CloudContainer = styled.form`
   margin: 20px 15px;
   width: 420px;
   height: 560px;
@@ -32,7 +37,7 @@ export const SelectorWrap = styled.div`
   align-items: center;
 `
 
-export const TextFieldWrapper = styled.form`
+export const TextFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 41px;
@@ -86,8 +91,10 @@ export const SubmitButton = styled.button`
   width: 100%;
   height: 40px;
   border-radius: 5px;
-  background: ${(props) => props.theme.color.skyblue20};
+  background: ${(props) => props.theme.color.skyblue50};
   color: ${(props) => props.theme.mono.white};
   border: none;
   margin-top: 20px;
+
+  ${props => props.disabled && disabledStyle}
 `;
