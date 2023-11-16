@@ -23,7 +23,7 @@
     }
   ],
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "popup.html",
     "default_icon": "images/logo_extension.png",
     "default_title": "뜬구름"
   }

@@ -40,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "copy-webpack-plugin": "^11.0.0",
     "customize-cra": "^1.0.0",
     "react-app-rewire-multiple-entry": "^2.2.3",

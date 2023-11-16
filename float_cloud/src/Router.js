@@ -9,7 +9,7 @@ function ExtensionRouter () {
   const [token, setToken] = useState('');
 
   useEffect(()=> {
-    chrome.storage.local.get(['token'], function(result) {
+    chrome.storage?.local?.get(['token'], function(result) {
       if (result.token) {
         setToken(result.token);
       }
@@ -25,7 +25,6 @@ function ExtensionRouter () {
           :
           <AuthLanding />
         }
-        <AddComment />
       </Router>
     </>
   )

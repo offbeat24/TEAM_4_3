@@ -9,5 +9,6 @@ export const theme = {
     skyblue70: "#0094FFB2",
     skyblue50: "#0094FF80",
     skyblue20: "#0094FF33",
+    blue100: "#2864FF"
   },
 }

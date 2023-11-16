@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Dropdown from '../DropDown';
 import * as S from './style';
 
-function AddComment () {
+function AddComment ({ token }) {
   const [isOpenTeam, setIsOpenTeam] = useState(false);
   const [isOpenTopic, setIsOpenTopic] = useState(false);
   const [selectedTeam, setSelectedTeam] = useState(null);
