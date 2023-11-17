@@ -1,47 +1,39 @@
-/*global chrome*/
 import axios from 'axios';
 const baseURL = process.env.REACT_APP_URL;
 
-const instanceUtil = axios.create({
-  baseURL,
-  headers: {
-    "Content-Type" : "application/json",
-  },
-});
 
-instanceUtil.interceptors.request.use(
-  (config) => {
-    chrome.storage.local.get('token', (result) => {
-      if (result.token) {
-        config.headers.Authorization = result.token;
-      } else {
-        window.open("https://www.ddngoorm.xyz/login", "_blank", "noopener,noreferrer");
-      } return config;
-    });
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
-
-export const getTeams = async () => {
+export const getTeams = async (token) => {
   try {
-    const response = await instanceUtil.get(`/teams`);
-
+    const response = await axios.get(
+      `${baseURL}/teams`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     console.error(error);
+
     return error;
   }
-}
-
-export const postCloud = async (data) => {
+};
+export const postCloud = async (token, data) => {
   try {
-    const response = await instanceUtil.post(`/guest/clouds`, data);
-
+    const response = await axios.get(
+      `${baseURL}/guest/clouds`,
+      data,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     console.error(error);
+    
     return error;
   }
 };
