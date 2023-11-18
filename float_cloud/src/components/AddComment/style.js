@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 const disabledStyle = css`
   background: ${(props) => props.theme.mono.mono3};
   cursor: not-allowed;
+  font-family: "SUIT-Regular";
 `;
 
 export const MainWrapper = styled.div`
@@ -95,6 +96,6 @@ export const SubmitButton = styled.button`
   color: ${(props) => props.theme.mono.white};
   border: none;
   margin-top: 20px;
-
+  font-family: "SUIT-Regular";
   ${props => props.disabled && disabledStyle}
 `;

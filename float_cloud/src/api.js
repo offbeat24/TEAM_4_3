@@ -21,8 +21,8 @@ export const getTeams = async (token) => {
 };
 export const postCloud = async (token, data) => {
   try {
-    const response = await axios.get(
-      `${baseURL}/guest/clouds`,
+    const response = await axios.post(
+      `${baseURL}/guest/goorms`,
       data,
       {
         headers: {
