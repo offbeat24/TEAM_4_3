@@ -68,7 +68,7 @@ function AddComment ({ token }) {
     }
     const res = await postCloud(token, data);
     if (res.code === 201) {
-      console.log(res.message)
+      alert(res.message)
     } else {
       alert("등록에 실패했습니다.")
     }
